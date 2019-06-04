@@ -6,7 +6,8 @@
 #include <vector>
 
 extern RTree<int,double,2,double> MyTree;
-//extern vector<vector<pair<double,double> > > Polystore;
+extern RTree<int,double,2,double> MyTree2;
+
 extern std::unordered_map<int, std::vector<std::pair<double,double> > > Polylist;
 extern std::unordered_map<int, std::pair<double,double> > Pointlist;
 extern std::vector<int> RecIdAns;
@@ -23,7 +24,7 @@ struct Rectangle{
         p_max[0]=maxX;
         p_max[1]=maxY;
     }
-    Rectangle(std::vector<std::pair<double, double> >& polygon){
+    Rectangle(std::vector<std::pair<double,double> >& polygon){
         double l=10000000.0,r=-10000000.0,u=-10000000.0,d=10000000.0;
         for(int i=0;i<(int)polygon.size();i++){
             std::pair<double,double> tp=polygon[i];
@@ -40,5 +41,7 @@ struct Rectangle{
 };
 
 bool CheckPoint(double x, double y, std::vector<std::pair<double,double> >& poly);
+
+bool MySearchCallback(int id);
 
 #endif // OPERATION_H

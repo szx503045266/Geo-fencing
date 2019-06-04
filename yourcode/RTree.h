@@ -1,3 +1,8 @@
+/*************************************
+**      RTree.h中的代码为开源代码       **
+*  来自https://github.com/nushoin/RTree  *
+**     在其基础上进行了少量修改        **
+**************************************/
 #ifndef RTREE_H
 #define RTREE_H
 
@@ -8,7 +13,6 @@
 #include <math.h>
 #include <assert.h>
 #include <stdlib.h>
-#include <iostream>
 
 #include <algorithm>
 #include <functional>
@@ -52,7 +56,7 @@ class RTFileStream;  // File I/O helper class, look below for implementation and
 ///        array similar to MFC CArray or STL Vector for returning search query result.
 ///
 template<class DATATYPE, class ELEMTYPE, int NUMDIMS,
-         class ELEMTYPEREAL = ELEMTYPE, int TMAXNODES = 8, int TMINNODES = TMAXNODES / 2>
+         class ELEMTYPEREAL = ELEMTYPE, int TMAXNODES = 24, int TMINNODES = TMAXNODES / 2 >
 class RTree
 {
 protected:

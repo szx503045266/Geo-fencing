@@ -3,7 +3,8 @@
 using namespace std;
 
 RTree<int,double,2,double> MyTree;
-//vector<vector<pair<double,double> > > Polystore;
+RTree<int,double,2,double> MyTree2;
+
 unordered_map<int, vector<pair<double,double> > > Polylist;
 unordered_map<int, pair<double,double> > Pointlist;
 vector<int> RecIdAns;
@@ -27,7 +28,7 @@ bool CheckPoint(double x, double y, vector<pair<double,double> >& poly){
             xu=p2.first, yu=p2.second;
             xd=p1.first, yd=p1.second;
         }
-        if((x==xu&&y==yu)||(x==xd&&y==yd)||((yu-y)*(x-xd)==(y-yd)*(xu-x)))
+        if((x==xu&&y==yu)||(x==xd&&y==yd)||(yu==y&&yd==y))
             return false;
         if(y<=yu&&y>yd){
             double xt=xu-(yu-y)*(xu-xd)/(yu-yd);
@@ -36,4 +37,9 @@ bool CheckPoint(double x, double y, vector<pair<double,double> >& poly){
         }
     }
     return (times%2) ? true : false;
+}
+
+bool MySearchCallback(int id){
+    RecIdAns.emplace_back(id);
+    return true;
 }
